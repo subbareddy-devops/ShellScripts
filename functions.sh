@@ -28,8 +28,14 @@ then
 else
     for i in $@
     do
-        yum install $i -y &>>$LogFile
-        validate $? "$i"
+        yum list installed $i &>>LogFile
+        if [ $? -ne 0 ]
+        then
+            echo -e "$G $i is not installed yet, Installing now $N"
+            yum install $i -y &>>$LogFile
+            validate $? "$i"
+        else
+            echo -e "$Y $i is already installed $N"
     done
 fi
     
