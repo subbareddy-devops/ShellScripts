@@ -2,7 +2,7 @@
 
 Date=$(date +%F)
 ScriptName=$0
-LogsDir=/tmp/
+LogsDir=/ShellScripts/
 LogFile=$LogsDir/$0-$Date.log
 R="\e[31m"
 G="\e[32m"
