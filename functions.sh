@@ -31,7 +31,7 @@ else
         yum list installed $i &>>LogFile
         if [ $? -ne 0 ]
         then
-            echo -e "$G $i is not installed yet, Installing now $N"
+            echo -e "$Y $i is not installed yet, Installing now $N"
             yum install $i -y &>>$LogFile
             validate $? "$i"
         else
