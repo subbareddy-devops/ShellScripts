@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LogsDir=/root/ShellScripts/logs
+LogsDir=/tmp
 G="\e[32m"
 R="\e[31m"
 N="\e[0m"
