@@ -10,11 +10,11 @@ Y="\e[33m"
 N="\e[0m"
 Thresshold=20
 message=""
-DiskUsage=$(df -hT | grep ntfs)
+DiskUsage=$(df -hT | grep xfs)
 
 While IFS= read line
 do
-    Usage=$(echo $line | grep -o '\w*%')
+    Usage=$(echo $line | awk '{print $6} | cut -d % -f1')
     echo "$DiskUsage"
     FileSystem=$(echo $line | awk '{print $1}')
     echo "$FileSystem"
