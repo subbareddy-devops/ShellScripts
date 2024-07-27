@@ -9,11 +9,11 @@ N="\e[0m"
 LogsPersist=$LogsDir/Persisted.log
 LogsDel=$LogsDir/Deleted.log
 
-Files_to_del=$(Find $LogsDir -name "*.log" -mtime +15 -ls)
+Files_to_del=$(find $LogsDir -name "*.log" -mtime +15 -ls)
 echo -e "$R $Files_to_del $N" &>> $LogsDel
-Find $LogsDir -name "*.log" -mtime +15 -delete
+find $LogsDir -name "*.log" -mtime +15 -delete
 
-Files_to_persist=$(Find $LogsDir -name "*.log" -mtime -15 -ls)
+Files_to_persist=$(find $LogsDir -name "*.log" -mtime -15 -ls)
 echo -e "$G $Files_to_persist $N" &>> $LogsPersist
 
 
