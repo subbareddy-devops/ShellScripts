@@ -12,7 +12,7 @@ Thresshold=20
 message=""
 DiskUsage=$(df -hT | grep xfs)
 
-While IFS= read line
+while IFS= read line
 do
     Usage=$(echo $line | awk '{print $6} | cut -d % -f1')
     echo "$DiskUsage"
