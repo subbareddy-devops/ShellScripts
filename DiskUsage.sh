@@ -14,7 +14,7 @@ DiskUsage=$(df -hT | grep xfs)
 
 while IFS= read line
 do
-    Usage=$(echo $line | awk '{print $6} | cut -d % -f1')
+    Usage=$(echo $line | awk '{print $6}' | cut -d % -f1')
     echo "$DiskUsage"
     FileSystem=$(echo $line | awk '{print $1}')
     echo "$FileSystem"
