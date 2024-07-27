@@ -15,9 +15,9 @@ DiskUsage=$(df -hT | grep xfs)
 while IFS= read line
 do
     Usage=$(echo $line | awk '{print $6}' | cut -d % -f1)
-    echo "$DiskUsage"
+    
     FileSystem=$(echo $line | awk '{print $1}')
-    echo "$FileSystem"
+  
 
     if [ $Usage -gt $Thresshold ]
     then
@@ -25,3 +25,5 @@ do
     fi
 done <<< $DiskUsage
 echo -e "message: $message"
+
+sh mail.sh imsubbu@gmail.com "High Disk Usage" "$message" "DEVOPS TEAM" "High Disk usage"
